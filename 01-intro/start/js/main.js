@@ -3,6 +3,22 @@ $(document).ready(function(){
   //  Init scrollMagic
   const controller = new ScrollMagic.Controller();
 
+  //  pin scene 01
+  const pinIntroScene = new ScrollMagic.Scene({
+    triggerElement: '#intro',
+    triggerHook: 0,
+    duration: '20%'
+  })
+  .setPin('#intro', {pushFollowers: false})
+  .addTo(controller);
+
+  //  pin scene 02
+  const pinIntroScene2 = new ScrollMagic.Scene({
+    triggerElement: '#project01',
+    triggerHook: 0.2
+  })
+  .setPin('#intro', {pushFollowers: false})
+  .addTo(controller);
 
   //  loop through each .project element
   $('.project').each(function() {
@@ -11,7 +27,7 @@ $(document).ready(function(){
     console.log(this);
 
     //  Build a scene
-    var ourScene = new ScrollMagic.Scene({
+    const ourScene = new ScrollMagic.Scene({
       triggerElement: this.children[0], // changing the target element to "this" keyword and target the children(img)
       triggerHook: 0.9,
       //duration: '90%'
